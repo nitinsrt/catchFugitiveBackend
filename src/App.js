@@ -3,10 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: 'https://localhost:3000',
+  origin: "http://localhost:3000",
   // other options...
 };
-
 
 app.use(cors(corsOptions));
 
@@ -68,7 +67,7 @@ app.get("/capture-results", (req, res) => {
       captureResults.push({
         copName: choice.copName,
         result: "captured the fugitive. He was hiding in" + " " + choice.city,
-        captured: true
+        captured: true,
       });
     } else if (
       choice.city != fugitiveLocation.name &&
@@ -78,7 +77,7 @@ app.get("/capture-results", (req, res) => {
       captureResults.push({
         copName: choice.copName,
         result: "reached the city but fugitive was not there",
-        captured: false
+        captured: false,
       });
     } else if (
       vehicles.find((v) => v.name === choice.vehicle).distance <
@@ -87,13 +86,13 @@ app.get("/capture-results", (req, res) => {
       captureResults.push({
         copName: choice.copName,
         result: "vehicle distance was not enough",
-        captured: false
+        captured: false,
       });
     }
   });
   const results = [...captureResults];
-  copsChoices=[];
-  captureResults=[];
+  copsChoices = [];
+  captureResults = [];
   res.json(results);
 });
 
