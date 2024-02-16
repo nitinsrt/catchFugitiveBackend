@@ -7,7 +7,6 @@ const corsOptions = {
   // other options...
 };
 
-app.use(cors(corsOptions));
 
 const app = express();
 const PORT = 3001; // Change as needed
@@ -32,6 +31,7 @@ let copsChoices = [];
 let captureResults = [];
 
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
 // Endpoint to get cities
 app.get("/cities", (req, res) => {
