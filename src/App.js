@@ -2,6 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const corsOptions = {
+  origin: 'https://localhost:3000',
+  // other options...
+};
+
+
+app.use(cors(corsOptions));
+
 const app = express();
 const PORT = 3001; // Change as needed
 
@@ -25,7 +33,6 @@ let copsChoices = [];
 let captureResults = [];
 
 app.use(bodyParser.json());
-app.use(cors());
 
 // Endpoint to get cities
 app.get("/cities", (req, res) => {
