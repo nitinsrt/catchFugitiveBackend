@@ -52,7 +52,6 @@ app.post("/cop-choice", (req, res) => {
 
 // Endpoint to determine capture results
 app.get("/capture-results", (req, res) => {
-    console.log(copsChoices)
   copsChoices.map((choice) => {
     if (
       choice.city === fugitiveLocation.name &&
